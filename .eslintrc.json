@@ -1,3 +1,3 @@
 {
-  "extends": ["plugin:prettier/recommended", "plugin:vue/recommended"]
+  "extends": ["eslint:recommended", "plugin:vue/recommended", "prettier"]
 }

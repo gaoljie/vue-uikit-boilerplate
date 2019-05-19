@@ -18,7 +18,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "eslint --ext .js,.vue --ignore-pattern **/*.story.js src"
     }
   },
   "author": "",
