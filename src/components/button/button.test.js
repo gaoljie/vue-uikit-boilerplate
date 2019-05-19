@@ -7,3 +7,8 @@ describe("KlkButton", () => {
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
 });
+
+test("renders correctly", () => {
+  const wrapper = mount(KlkButton);
+  expect(wrapper.element).toMatchSnapshot();
+});
