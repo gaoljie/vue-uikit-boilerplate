@@ -1,13 +1,10 @@
 {
   "name": "vue-uikit-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Vue UI Kit boilerplate",
+  "author": "Jay Gao",
+  "license": "ISC",
   "main": "lib/vue-uikit-boilerplate.js",
-  "module": "lib/vue-uikit-boilerplate.esm.js",
-  "unpkg": "lib/vue-uikit-boilerplate.min.js",
-  "browser": {
-    "./core": "src/components"
-  },
   "scripts": {
     "test": "jest",
     "build": "rimraf lib && npm run build:web && npm run build:com",
@@ -19,6 +16,37 @@
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged && eslint --ext .js,.vue --ignore-pattern **/*.story.js --ignore-pattern **/*.test.js src"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:vue/recommended",
+      "prettier"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ]
+        ]
+      }
     }
   },
   "jest": {
@@ -35,8 +63,6 @@
       "jest-serializer-vue"
     ]
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
