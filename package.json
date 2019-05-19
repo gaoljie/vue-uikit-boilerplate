@@ -1,0 +1,58 @@
+{
+  "name": "vue-uikit-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/vue-uikit-boilerplate.js",
+  "module": "lib/vue-uikit-boilerplate.esm.js",
+  "unpkg": "lib/vue-uikit-boilerplate.min.js",
+  "browser": {
+    "./core": "src/components"
+  },
+  "scripts": {
+    "build:roll": "rollup --config",
+    "build": "rimraf lib && npm run build:web && npm run build:com",
+    "build:web": "webpack --mode production --config build/webpack.config.js",
+    "build:com": "webpack --mode production --config build/webpack.component.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addons": "^5.0.11",
+    "@storybook/vue": "^5.0.11",
+    "autoprefixer": "^9.5.1",
+    "babel-loader": "^8.0.6",
+    "babel-preset-vue": "^2.0.2",
+    "css-loader": "^2.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "husky": "^2.3.0",
+    "mini-css-extract-plugin": "^0.6.0",
+    "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^1.17.1",
+    "pretty-quick": "^1.10.0",
+    "rimraf": "^2.6.3",
+    "sass-loader": "^7.1.0",
+    "terser-webpack-plugin": "^1.2.4",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-merge": "^4.2.1"
+  }
+}
