@@ -21,6 +21,20 @@
       "pre-commit": "pretty-quick --staged && eslint --ext .js,.vue --ignore-pattern **/*.story.js --ignore-pattern **/*.test.js src"
     }
   },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "vue-jest"
+    },
+    "snapshotSerializers": [
+      "jest-serializer-vue"
+    ]
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
