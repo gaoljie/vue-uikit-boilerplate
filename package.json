@@ -9,7 +9,7 @@
     "./core": "src/components"
   },
   "scripts": {
-    "build:roll": "rollup --config",
+    "test": "jest",
     "build": "rimraf lib && npm run build:web && npm run build:com",
     "build:web": "webpack --mode production --config build/webpack.config.js",
     "build:com": "webpack --mode production --config build/webpack.component.js",
@@ -18,7 +18,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint --ext .js,.vue --ignore-pattern **/*.story.js src"
+      "pre-commit": "pretty-quick --staged && eslint --ext .js,.vue --ignore-pattern **/*.story.js --ignore-pattern **/*.test.js src"
     }
   },
   "author": "",
@@ -30,7 +30,10 @@
     "@storybook/addon-links": "^5.0.11",
     "@storybook/addons": "^5.0.11",
     "@storybook/vue": "^5.0.11",
+    "@vue/test-utils": "^1.0.0-beta.29",
     "autoprefixer": "^9.5.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
     "css-loader": "^2.1.1",
@@ -39,6 +42,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.2.2",
     "husky": "^2.3.0",
+    "jest": "^24.8.0",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
@@ -49,6 +53,7 @@
     "sass-loader": "^7.1.0",
     "terser-webpack-plugin": "^1.2.4",
     "vue": "^2.6.10",
+    "vue-jest": "^3.0.4",
     "vue-loader": "^15.7.0",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.31.0",

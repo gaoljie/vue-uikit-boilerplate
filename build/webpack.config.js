@@ -23,7 +23,7 @@ module.exports = merge(webpackBaseConfig, {
             loader: "sass-loader",
             options: {
               // you can also read from a file, e.g. `variables.scss`
-              data: `@import "./src/styles/settings/base.scss";`
+              data: `@import "./src/styles/variables/base.scss";`
             }
           }
         ]

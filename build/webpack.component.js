@@ -6,8 +6,7 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 module.exports = merge(webpackBaseConfig, {
   entry: {
-    "klk-btn": path.resolve(__dirname, "../src/components/button/index.js"),
-    "klk-alert": path.resolve(__dirname, "../src/components/alert/index.js")
+    "klk-btn": path.resolve(__dirname, "../src/components/button/index.js")
   },
   output: {
     path: path.resolve(__dirname, "../lib"),
@@ -26,7 +25,7 @@ module.exports = merge(webpackBaseConfig, {
             loader: "sass-loader",
             options: {
               // you can also read from a file, e.g. `variables.scss`
-              data: `@import "./src/styles/settings/base.scss";`
+              data: `@import "./src/styles/variables/base.scss";`
             }
           }
         ]
