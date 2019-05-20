@@ -1,3 +1,3 @@
-import KlkButton from "./Button.vue";
-import "../../styles/components/button.scss";
+import KlkButton from "./button.vue";
+import "./button.scss";
 export default KlkButton;

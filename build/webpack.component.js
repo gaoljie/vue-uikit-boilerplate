@@ -6,7 +6,9 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 module.exports = merge(webpackBaseConfig, {
   entry: {
-    "klk-btn": path.resolve(__dirname, "../src/components/button/index.js")
+    "klk-btn": path.resolve(__dirname, "../src/components/button/index.js"),
+    "klk-alert": path.resolve(__dirname, "../src/components/alert/index.js"),
+    "klk-cascader": path.resolve(__dirname, "../src/components/cascader/index.js")
   },
   output: {
     path: path.resolve(__dirname, "../lib"),
@@ -36,7 +38,7 @@ module.exports = merge(webpackBaseConfig, {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: "[name]/style.css"
+      filename: "theme/[name].css"
     })
   ],
   optimization: {

@@ -7,9 +7,10 @@
   "main": "lib/vue-uikit-boilerplate.js",
   "scripts": {
     "test": "jest",
-    "build": "rimraf lib && npm run build:web && npm run build:com",
+    "build": "rimraf lib && yarn build:web && yarn build:com && yarn build:style",
     "build:web": "webpack --mode production --config build/webpack.config.js",
     "build:com": "webpack --mode production --config build/webpack.component.js",
+    "build:style": "webpack --mode production --config build/webpack.style.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
