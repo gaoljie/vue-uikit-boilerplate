@@ -6,9 +6,12 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 module.exports = merge(webpackBaseConfig, {
   entry: {
-    "klk-btn": path.resolve(__dirname, "../src/components/button/index.js"),
+    "klk-button": path.resolve(__dirname, "../src/components/button/index.js"),
     "klk-alert": path.resolve(__dirname, "../src/components/alert/index.js"),
-    "klk-cascader": path.resolve(__dirname, "../src/components/cascader/index.js")
+    "klk-cascader": path.resolve(
+      __dirname,
+      "../src/components/cascader/index.js"
+    )
   },
   output: {
     path: path.resolve(__dirname, "../lib"),
