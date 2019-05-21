@@ -2,7 +2,8 @@ const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const autoprefixer = require("autoprefixer");
 const webpack = require("webpack");
-
+const TerserJSPlugin = require("terser-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 module.exports = {
   module: {
     rules: [
@@ -60,6 +61,12 @@ module.exports = {
       }
     })
   ],
+  optimization: {
+    minimizer: [
+      new TerserJSPlugin({ sourceMap: true }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
   externals: {
     vue: {
       root: "Vue",

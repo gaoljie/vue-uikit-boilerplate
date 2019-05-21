@@ -19,6 +19,7 @@ module.exports = merge(webpackBaseConfig, {
         use: [
           "vue-style-loader",
           "css-loader",
+          "postcss-loader",
           {
             loader: "sass-loader",
             options: {

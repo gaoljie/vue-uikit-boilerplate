@@ -7,7 +7,7 @@
   "main": "lib/vue-uikit-boilerplate.js",
   "scripts": {
     "test": "jest",
-    "build": "rimraf lib && yarn build:web && yarn build:com",
+    "build": "rimraf lib && yarn build:web && yarn build:com && rimraf lib/base",
     "build:web": "webpack --mode production --config build/webpack.config.js",
     "build:com": "webpack --mode production --config build/webpack.component.js",
     "build:style": "webpack --mode production --config build/webpack.style.js",

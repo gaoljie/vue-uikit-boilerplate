@@ -2,10 +2,10 @@ const path = require("path");
 const merge = require("webpack-merge");
 const webpackBaseConfig = require("./webpack.base.js");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const TerserJSPlugin = require("terser-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+
 module.exports = merge(webpackBaseConfig, {
   entry: {
+    base: path.resolve(__dirname, "../src/styles/index.scss"),
     "klk-button": path.resolve(__dirname, "../src/components/button/index.js"),
     "klk-alert": path.resolve(__dirname, "../src/components/alert/index.js"),
     "klk-cascader": path.resolve(
@@ -43,8 +43,5 @@ module.exports = merge(webpackBaseConfig, {
       // both options are optional
       filename: "theme/[name].css"
     })
-  ],
-  optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
-  }
+  ]
 });
