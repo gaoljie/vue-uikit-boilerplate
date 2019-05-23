@@ -2,17 +2,25 @@ const path = require("path");
 const merge = require("webpack-merge");
 const webpackBaseConfig = require("./webpack.base.js");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const glob = require('glob')
+
+const entry = Object.assign(
+  {},
+  {
+    base: path.resolve(__dirname, "../src/styles/index.scss"),
+  },
+  glob.sync("./src/components/**/index.js")
+    .map(item => {
+      return item.split('/')[3]
+    }).reduce(
+    (acc, cur) => {
+      acc[`klk-${cur}`] = path.resolve(__dirname, `../src/components/${cur}/index.js`)
+      return {...acc}
+    }, {})
+)
 
 module.exports = merge(webpackBaseConfig, {
-  entry: {
-    base: path.resolve(__dirname, "../src/styles/index.scss"),
-    "klk-button": path.resolve(__dirname, "../src/components/button/index.js"),
-    "klk-alert": path.resolve(__dirname, "../src/components/alert/index.js"),
-    "klk-cascader": path.resolve(
-      __dirname,
-      "../src/components/cascader/index.js"
-    )
-  },
+  entry: entry,
   output: {
     path: path.resolve(__dirname, "../lib"),
     filename: "[name]/index.js",
