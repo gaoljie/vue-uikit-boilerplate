@@ -9,3 +9,10 @@ export default {
   name: "KlkBtn"
 };
 </script>
+
+<style lang="scss">
+  .klk-btn {
+    background: $color_primary;
+  }
+
+</style>

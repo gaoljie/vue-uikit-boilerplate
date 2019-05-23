@@ -1,3 +1,4 @@
+import './styles/index.scss'
 import * as components from "./entry";
 
 function importAll(r) {

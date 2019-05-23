@@ -1,5 +1,5 @@
 <template>
-  <button class="klk-btn">
+  <button class="klk-alert">
     <slot></slot>
   </button>
 </template>
@@ -9,3 +9,10 @@ export default {
   name: "KlkBtn"
 };
 </script>
+<style lang="scss">
+  .klk-alert {
+    background: $color_blue;
+  }
+
+
+</style>

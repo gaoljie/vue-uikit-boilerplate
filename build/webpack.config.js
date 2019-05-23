@@ -1,6 +1,7 @@
 const path = require("path");
 const merge = require("webpack-merge");
 const webpackBaseConfig = require("./webpack.base.js");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(webpackBaseConfig, {
   entry: {
@@ -12,12 +13,17 @@ module.exports = merge(webpackBaseConfig, {
     library: "vue-uikit-boilerplate",
     libraryTarget: "umd"
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'index.css',
+    }),
+  ],
   module: {
     rules: [
       {
         test: /\.scss$/,
         use: [
-          "style-loader",
+          MiniCssExtractPlugin.loader,
           "css-loader",
           "postcss-loader",
           {
@@ -30,5 +36,17 @@ module.exports = merge(webpackBaseConfig, {
         ]
       }
     ]
-  }
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
+  },
 });
