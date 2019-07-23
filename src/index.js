@@ -1,11 +1,5 @@
-import './styles/index.scss'
+import "./styles/index.scss";
 import * as components from "./entry";
-
-function importAll(r) {
-  r.keys().forEach(r);
-}
-
-importAll(require.context("./assets/svg/", false, /\.svg$/));
 
 const install = function(Vue) {
   Object.keys(components).forEach(key => {

@@ -1,2 +1,2 @@
-import KlkButton from "./button.vue";
-export default KlkButton;
+import MlButton from "./button.vue";
+export default MlButton;

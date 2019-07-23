@@ -5,74 +5,28 @@
   "author": "Jay Gao",
   "license": "ISC",
   "main": "lib/vue-uikit-boilerplate.js",
+  "license": "MIT",
   "scripts": {
     "test": "jest",
+    "lint": "pretty-quick --staged && eslint --ext .js,.vue src",
+    "dev": "start-storybook",
+    "build:storybook": "build-storybook -c .storybook -o dist",
     "build": "rimraf lib && yarn build:web && yarn build:com && rimraf lib/base",
     "build:web": "webpack --mode production --config build/webpack.config.js",
     "build:com": "webpack --mode production --config build/webpack.component.js",
-    "build:style": "webpack --mode production --config build/webpack.style.js",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "publish": "yarn build && npm publish"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && eslint --ext .js,.vue --ignore-pattern **/*.story.js --ignore-pattern **/*.test.js src"
+      "pre-commit": "yarn test && yarn lint"
     }
-  },
-  "eslintConfig": {
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "eslint:recommended",
-      "plugin:vue/recommended",
-      "prettier"
-    ]
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "env": {
-      "test": {
-        "presets": [
-          [
-            "@babel/preset-env",
-            {
-              "targets": {
-                "node": "current"
-              }
-            }
-          ]
-        ]
-      }
-    }
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".*\\.(vue)$": "vue-jest"
-    },
-    "snapshotSerializers": [
-      "jest-serializer-vue"
-    ]
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "@storybook/addon-actions": "^5.0.11",
-    "@storybook/addon-links": "^5.0.11",
-    "@storybook/addons": "^5.0.11",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@storybook/addon-notes": "^5.0.11",
+    "@storybook/addon-storysource": "^5.0.11",
+    "@storybook/addon-viewport": "^5.0.11",
     "@storybook/vue": "^5.0.11",
     "@vue/test-utils": "^1.0.0-beta.29",
     "autoprefixer": "^9.5.1",
@@ -81,11 +35,11 @@
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
     "css-loader": "^2.1.1",
+    "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-jest": "^22.6.4",
     "eslint-plugin-vue": "^5.2.2",
-    "file-loader": "^3.0.1",
     "glob": "^7.1.4",
     "husky": "^2.3.0",
     "jest": "^24.8.0",
@@ -95,17 +49,15 @@
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.17.1",
-    "pretty-quick": "^1.10.0",
+    "pretty-quick": "^1.11.0",
     "rimraf": "^2.6.3",
     "sass-loader": "^7.1.0",
-    "svg-sprite-loader": "^4.1.6",
-    "terser-webpack-plugin": "^1.2.4",
-    "url-loader": "^1.1.2",
+    "style-loader": "^0.23.1",
     "vue": "^2.6.10",
     "vue-jest": "^3.0.4",
     "vue-loader": "^15.7.0",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.31.0",
+    "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
     "webpack-merge": "^4.2.1"
   }

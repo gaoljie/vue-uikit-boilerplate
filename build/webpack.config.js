@@ -13,11 +13,6 @@ module.exports = merge(webpackBaseConfig, {
     library: "vue-uikit-boilerplate",
     libraryTarget: "umd"
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'index.css',
-    }),
-  ],
   module: {
     rules: [
       {
@@ -26,27 +21,14 @@ module.exports = merge(webpackBaseConfig, {
           MiniCssExtractPlugin.loader,
           "css-loader",
           "postcss-loader",
-          {
-            loader: "sass-loader",
-            options: {
-              // you can also read from a file, e.g. `variables.scss`
-              data: `@import "./src/styles/variables/base.scss";`
-            }
-          }
+          "sass-loader"
         ]
       }
     ]
   },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        styles: {
-          name: 'styles',
-          test: /\.css$/,
-          chunks: 'all',
-          enforce: true,
-        },
-      },
-    },
-  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "index.css"
+    })
+  ]
 });

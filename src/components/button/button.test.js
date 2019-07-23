@@ -1,14 +1,18 @@
-import { mount } from "@vue/test-utils";
-import KlkButton from "./button.vue";
+import { shallowMount } from "@vue/test-utils";
+import MlButton from "./button.vue";
 
-describe("KlkButton", () => {
+describe("Button", () => {
   test("is a Vue instance", () => {
-    const wrapper = mount(KlkButton);
+    const wrapper = shallowMount(MlButton);
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
-});
 
-test("renders correctly", () => {
-  const wrapper = mount(KlkButton);
-  expect(wrapper.element).toMatchSnapshot();
+  test("positive color", () => {
+    const wrapper = shallowMount(MlButton, {
+      propsData: {
+        type: "positive"
+      }
+    });
+    expect(wrapper.classes("ml-button--positive")).toBeTruthy();
+  });
 });

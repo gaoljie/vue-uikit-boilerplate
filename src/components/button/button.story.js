@@ -1,14 +1,17 @@
-import Vue from "vue";
 import { storiesOf } from "@storybook/vue";
-import KlkButton from "./button.vue";
-import { action } from "@storybook/addon-actions";
-
-storiesOf("Button", module).add("component", () => ({
-  template: '<klk-button @click="buttonClick">Click</klk-button>',
-  components: {
-    KlkButton
-  },
-  methods: {
-    buttonClick: action("click")
+import MlButton from "./button.vue";
+import markdown from "./button.md";
+storiesOf("Button", module).add(
+  "Primary",
+  () => ({
+    components: { MlButton },
+    template: `<div>
+<ml-button type="primary">Primary</ml-button>
+<ml-button disabled>Disabled</ml-button>
+<ml-button round>Round</ml-button>
+</div>`
+  }),
+  {
+    notes: { markdown: markdown }
   }
-}));
+);
