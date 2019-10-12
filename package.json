@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Vue UI Kit boilerplate",
   "author": "Jay Gao",
-  "license": "ISC",
   "main": "lib/vue-uikit-boilerplate.js",
   "license": "MIT",
   "scripts": {
